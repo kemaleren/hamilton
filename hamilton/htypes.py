@@ -381,5 +381,12 @@ def check_instance(obj: Any, type_: Any) -> bool:
                         return False
                 return True
 
+            else:
+                # other generics are not currently supported, but
+                # return `True` here because otherwise the type will
+                # be treated liked a non-generic type and probably
+                # cause an error.
+                return True
+
     # If the type is not a generic type, just use isinstance
     return isinstance(obj, type_)
